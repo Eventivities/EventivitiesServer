@@ -30,7 +30,7 @@ class puntuaciones{
 				if($i > 0)
 					$json .= ",";
 				//"yyyy-MM-dd HH:mm"
-				$json .= " { \"idPuntuacion\" : ".$obj->idPuntuacion.", \"puntuacion\": \"".$obj->Puntuacion."\", \"idUsuario\": \""
+				$json .= " { \"idPuntuacion\" : \"".$obj->idPuntuacion."\", \"puntuacion\": \"".$obj->Puntuacion."\", \"idUsuario\": \""
 						.$obj->idUsuario."\", \"idEvento\": \"".$obj->idEvento."\" ";
 		
 		

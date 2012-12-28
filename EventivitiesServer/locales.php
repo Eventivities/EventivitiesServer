@@ -13,7 +13,7 @@ class locales{
 	
 	public function getLocalesCiudad($ciudad){
 		$sql = "SELECT * ";
-		$sql .= " FROM Local WHERE ciudad='".$ciudad."'";
+		$sql .= " FROM Local WHERE ciudad='".$ciudad."'";		
 		$db = new bdadministrador();
 		return $db->executeQuery($sql);
 	}
@@ -40,7 +40,7 @@ Telefono 	char(9) 	No */
 			while($obj = $result->fetch_object()){
 				if($i > 0)
 					$json .= ",";				
-				$json .= " { \"nombreLocal\" : ".$obj->NombreLocal.", \"direccion\": \"".$obj->Direccion."\", \"latitud\": \""
+				$json .= " { \"nombreLocal\" : \"".$obj->NombreLocal."\", \"direccion\": \"".$obj->Direccion."\", \"latitud\": \""
 						.$obj->Latitud."\", \"longitud\": \"".$obj->Longitud. "\", \"idCategoria\": \"".$obj->idCategoria."\",
 								\"ciudad\": \"".$obj->Ciudad. "\", \"pais\": \"".$obj->Pais."\", \"telefono\": \"".$obj->Telefono."\",								
 								 \"idLocal\": \"".$obj->idLocal."\" ";		

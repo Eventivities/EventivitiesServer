@@ -4,7 +4,7 @@ include_once('bdadministrador.php');
 
 class puntuacioneslocal{
 
-	public function getPuntuacionesLocal(){
+	public function getPuntuaciones(){
 		$sql = "SELECT * ";
 		$sql .= " FROM PuntuacionLocal ";		
 		$db = new bdadministrador();
@@ -13,7 +13,7 @@ class puntuacioneslocal{
 	
 	public function getPuntuacionesLocal($idLocal){
 		$sql = "SELECT * ";
-		$sql .= " FROM PuntuacionLocal WHERE idLocal=".$idLocal;
+		$sql .= " FROM PuntuacionLocal WHERE idLocal=".$idLocal;		
 		$db = new bdadministrador();
 		return $db->executeQuery($sql);
 	}
@@ -29,7 +29,7 @@ class puntuacioneslocal{
 			while($obj = $result->fetch_object()){
 				if($i > 0)
 					$json .= ",";				
-				$json .= " { \"idPuntuacionLocal\" : ".$obj->idPuntuacionLocal.", \"puntuacion\": \"".$obj->Puntuacion."\", \"idUsuario\": \""
+				$json .= " { \"idPuntuacionLocal\" : \"".$obj->idPuntuacionLocal."\", \"puntuacion\": \"".$obj->Puntuacion."\", \"idUsuario\": \""
 						.$obj->idUsuario."\", \"idlocal\": \"".$obj->idLocal."\" ";
 		
 		
@@ -38,13 +38,13 @@ class puntuacioneslocal{
 			}
 		
 			$json .= " ] ";
-			$json .= " } ";
+			$json .= " } ";			
 			return $json;
 		}
 	}
-	
-	public function getJSONPuntuacionesLocal(){	
-		$result = $this->getPuntuacionesLocal();
+	 
+	public function getJSONPuntuaciones(){	
+		$result = $this->getPuntuaciones();		
 		$json=$this->formateaJSON($result);
 		return $json;		
 	}

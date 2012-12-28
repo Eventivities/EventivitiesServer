@@ -13,7 +13,7 @@ class comentarios{
 	
 	public function getComentariosEvento($idEvento){
 		$sql = "SELECT * ";
-		$sql .= " FROM Comentario WHERE idEvento=".$idEvento;
+		$sql .= " FROM Comentario WHERE idEvento=".$idEvento;		
 		$db = new bdadministrador();
 		return $db->executeQuery($sql);
 	}
@@ -38,7 +38,7 @@ idEvento 	int(11) 	No
 			while($obj = $result->fetch_object()){
 				if($i > 0)
 					$json .= ",";				
-				$json .= " { \"idComentario\" : ".$obj->idComentario.", \"comentario\": \"".$obj->Comentario."\", \"idUsuario\": \""
+				$json .= " { \"idComentario\" : \"".$obj->idComentario."\", \"comentario\": \"".$obj->Comentario."\", \"idUsuario\": \""
 						.$obj->idUsuario."\", \"idEvento\": \"".$obj->idEvento."\" ";
 		
 		
@@ -48,6 +48,7 @@ idEvento 	int(11) 	No
 		
 			$json .= " ] ";
 			$json .= " } ";
+			echo $json;
 			return $json;
 		}
 	}

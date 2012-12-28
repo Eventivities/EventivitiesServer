@@ -1,9 +1,9 @@
 <?php
 include_once('puntuacioneslocal.php');
-$puntuacioneslocal = new puntuacioneslocal();
+$puntuaciones = new puntuacioneslocal();
 if(isset($_POST['idLocal'])){
-	echo $puntuacioneslocal->getJSONPuntuacionesLocal($_POST['idLocal']);
+	echo $puntuaciones->getJSONPuntuacionesLocal($_POST['idLocal']);
 } else {
-	echo $puntuacioneslocal->getJSONError('envio','Error en el envío de datos');
+	echo $puntuaciones->getJSONError('envio','Error en el envío de datos');
 }
 ?>
