@@ -7,9 +7,9 @@ $usuario = new usuario();
 if(isset($_POST['username']) and (isset($_POST['password']))){
 	$alias = $_POST['username'];
 	$clave = $_POST['password'];
-	echo $login->getJSONRegistro($alias, $clave);
+	echo $usuario->getJSONRegistro($alias, $clave);
 }
 else{
-	echo $login->getJSONError('envio','Error en el envío de datos');
+	echo $usuario->getJSONError('envio','Error en el envío de datos');
 }
 ?>
