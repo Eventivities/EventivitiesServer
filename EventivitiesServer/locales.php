@@ -11,10 +11,13 @@ class locales{
 		return $db->executeQuery($sql);
 	}*/
 	
-	public function getLocalesCiudad($ciudad){
+	public function getLocalesCiudad($ciudad, $categoria){
 		/*$sql = "SELECT * ";
-		$sql .= " FROM Local WHERE ciudad='".$ciudad."'";	*/	
-		$sql="SELECT * FROM Local LEFT JOIN Imagen ON Local.idImagen=Imagen.idImagen WHERE ciudad='".$ciudad."'";
+		$sql .= " FROM Local WHERE ciudad='".$ciudad."'";	*/
+		if ($categoria == "0")
+			$sql="SELECT * FROM Local LEFT JOIN Imagen ON Local.idImagen=Imagen.idImagen WHERE ciudad='".$ciudad."'";
+		else
+			$sql="SELECT * FROM Local LEFT JOIN Imagen ON Local.idImagen=Imagen.idImagen WHERE ciudad='".$ciudad."' AND idCategoria='".$categoria."'";
 		$db = new bdadministrador();
 		return $db->executeQuery($sql);		
 	}
@@ -77,8 +80,8 @@ idImagen 	int(11) 	No 		*/
 		return $json;		
 	}*/
 
-	public function getJSONLocalesCiudad($ciudad){
-		$result = $this->getLocalesCiudad($ciudad);
+	public function getJSONLocalesCiudad($ciudad, $categoria){
+		$result = $this->getLocalesCiudad($ciudad, $categoria);
 		$json=$this->formateaJSON($result);
 		return $json;	
 	}
