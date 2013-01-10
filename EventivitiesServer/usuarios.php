@@ -42,8 +42,7 @@ class usuario{
 		{
 			//1062(duplicado); Entrada duplicada
 			if(mysqli_errno($link)==1062)
-			{
-				echo mysqli_error($link);
+			{				
 				$resultado=$this->formateaJSONRegistro(false);
 			}
 			else					
