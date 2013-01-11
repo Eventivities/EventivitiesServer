@@ -2,5 +2,5 @@
 include_once('eventos.php');
 echo 'hola';
 $eventos = new eventos();
-echo $eventos->getJSONEventos();
+echo utf8_encode($eventos->getJSONEventos());
 ?>
